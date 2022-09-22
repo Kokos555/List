@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\List - metody\List - metody.csproj">
+      <Project>{26B920A7-1192-4638-9DC5-1A805A9ADFDE}</Project>
+      <Name>List - metody</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

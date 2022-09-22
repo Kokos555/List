@@ -1,4 +1,5 @@
-﻿using System;
+﻿using List_metody;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,23 +17,33 @@ namespace P02
         {
             InitializeComponent();
         }
-
+        int k;
+        List<int> l = new List<int>();
         private void button1_Click(object sender, EventArgs e)
         {
+            l.Clear();
             Random cisla = new Random();
-            List<int> l = new List<int>();
             int pocet = Convert.ToInt32(textBox1.Text);
-            int k = Convert.ToInt32(textBox2.Text);
+            k = Convert.ToInt32(textBox2.Text);
             for (int i = 0; i < pocet; i++)
             {
                 int random_cislo = cisla.Next(-5, 20);
                 l.Add(random_cislo);
             }
-            
-            for(int i = 0; i < l.Count; i++)
-            {
-                listBox1.Items.Add(l[i]);
-            }
+
+            list.vypis(listBox1, l);
+            list.lambda(l, k);
+            list.vypis(listBox2, l);
+            label1.Text = String.Format($"Druhé maximum je {list.druhe_maximum(l,out int poradi_prvku)}, a je na {poradi_prvku}");
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            k = Convert.ToInt32(textBox2.Text);
+            list.vymaz(l, k);
+            list.vypis(listBox1, l);
         }
     }
 }
