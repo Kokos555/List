@@ -75,5 +75,19 @@ namespace List_metody
             poradi1 = pole.IndexOf(max2)+1;
             return max2;
         }
+
+        static public List<int> poradi_min_cisel(List<int> pole, out int min)
+        {
+            min = pole.Min();
+            List<int> test = new List<int>();
+            for (int i = 0; i < pole.Count; i++)
+            {
+                if (min == pole[i])
+                {
+                    test.Add(i+1);
+                }
+            }
+            return test;
+        }
     }
 }

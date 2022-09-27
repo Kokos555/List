@@ -22,11 +22,14 @@ namespace P04
         {
             List<int> l;
             int n = Convert.ToInt32(textBox1.Text);
-            list.Generovani(n, -5, 26);
+            l = list.Generovani(n, -5, 26);
             list.vypis(listBox1, l);
             l.Reverse();
             list.vypis(listBox2, l);
+            for(int i = 0; i < listBox3.Items.Count; i++)
+            {
 
+            }
         }
     }
 }
