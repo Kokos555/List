@@ -18,19 +18,12 @@ namespace P02
             InitializeComponent();
         }
         int k;
-        List<int> l = new List<int>();
+        List<int> l ;
         private void button1_Click(object sender, EventArgs e)
         {
-            l.Clear();
-            Random cisla = new Random();
             int pocet = Convert.ToInt32(textBox1.Text);
             k = Convert.ToInt32(textBox2.Text);
-            for (int i = 0; i < pocet; i++)
-            {
-                int random_cislo = cisla.Next(-5, 20);
-                l.Add(random_cislo);
-            }
-
+            l= list.Generovani(pocet, -5, 20);
             list.vypis(listBox1, l);
             list.lambda(l, k);
             list.vypis(listBox2, l);

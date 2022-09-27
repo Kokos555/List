@@ -8,6 +8,19 @@ namespace List_metody
 {
     public class list
     {
+        static public List<int> Generovani(int pocet, int dolni_mez, int horni_mez)
+        {
+            List<int> pole = new List<int>();
+            Random nh = new Random();
+            for (int i = 0; i < pocet; i++)
+            {
+                int x = nh.Next(dolni_mez, horni_mez);
+                pole.Add(x); 
+            }
+            return pole;
+        }
+
+
         static public void vypis(ListBox k, List<int> pole)
         {
             k.Items.Clear();
@@ -21,7 +34,7 @@ namespace List_metody
             int i = 0;
             while (i < pole.Count)
             {
-                if (pole.Contains(k)) { 
+                if (k == pole[i]) { 
                     pole.Remove(k);
                 }
                 else
