@@ -65,5 +65,15 @@ namespace List_metody
             }
             return max2;
         }
+
+        static public int DruhyNejvetsi(List<int> pole, out int poradi1)
+        {
+            List<int> p = pole.ToList();
+            p.Sort();
+            int delka = p.Count;
+            int max2 = p[delka - 2];
+            poradi1 = pole.IndexOf(max2)+1;
+            return max2;
+        }
     }
 }
