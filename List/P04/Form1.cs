@@ -26,10 +26,10 @@ namespace P04
             list.vypis(listBox1, l);
             l.Reverse();
             list.vypis(listBox2, l);
-            for(int i = 0; i < listBox3.Items.Count; i++)
-            {
-
-            }
+            List<int> l2 = list.poradi_min_cisel(l);
+            list.vypis(listBox3,l2);
+            
         }
+
     }
 }
