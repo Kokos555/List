@@ -89,5 +89,29 @@ namespace List_metody
             }
             return test;
         }
+        static public List<int> AritPosloupnost(List<int> pole, int n,int a1, int d)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                pole.Add(a1);
+                a1 += d;
+            }
+            return pole;
+
+        }
+
+        static public List<int> Pridani(List<int> pole, int n, int d)
+        {
+            int a1 = pole[pole.Count-1];
+            a1 += d;
+            AritPosloupnost(pole, n, a1, d);
+            return pole;
+        }
+        static public List<int> vytvor(int n, int a1, int d)
+        {
+            List<int> r = new List<int>();
+            AritPosloupnost(r, n, a1, d);   
+            return r;
+        }
     }
 }

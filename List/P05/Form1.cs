@@ -1,4 +1,5 @@
-﻿using System;
+﻿using List_metody;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace P05
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int a1;
+            int d;
+            int n;
+            if (!int.TryParse(textBox1.Text, out n) || !int.TryParse(textBox2.Text,out a1)|| !int.TryParse(textBox3.Text,out d)||n<1)
+            {
+                MessageBox.Show(string.Format("Počet prvků je menší jak 1"));
+                return;
+            }
+            List<int> l = list.vytvor(n, a1, d);
+            if (checkBox1.Checked)
+            {
+                list.Pridani(l, n, d);
+            }
+            list.vypis(listBox1, l);
         }
     }
 }
