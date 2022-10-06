@@ -32,7 +32,7 @@ namespace P06
             }
             List<double> l = list.Vytvor_gon(n, a1, a2);
             list.Vypis(listBox1, l);
-            if (list.soucet_prvku(l,p,out double soucet))
+            if (list.Soucet_prvku(l,p,out double soucet))
             {
                 MessageBox.Show(String.Format($"Součet prvků v poli je {soucet}."));
             }else

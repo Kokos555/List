@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Transactions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace List_metody
 {
@@ -146,7 +148,7 @@ namespace List_metody
             }
         }
 
-        static public bool soucet_prvku(List<double> pole,int p, out double soucet)
+        static public bool Soucet_prvku(List<double> pole,int p, out double soucet)
         {
             soucet = 0;
             if (p <= pole.Count)
@@ -163,6 +165,27 @@ namespace List_metody
                 return false;
             }
             
+        }
+
+
+
+        static public void Vypis(ListBox k, List<char> pole)
+        {
+            k.Items.Clear();
+            for (int i = 0; i < pole.Count; i++)
+            {
+                k.Items.Add(pole[i]);
+            }
+        }
+
+        static public List<char> Vytvor_char(TextBox test)
+        {
+            List<char> result = new List<char>();
+            for (int i = 0; i < test.Lines.Count(); i++)
+            {
+                result.Add(test.Lines[i][0]);
+            }
+            return result;
         }
     }
 }
