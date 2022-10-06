@@ -100,8 +100,9 @@ namespace List_metody
 
         }
 
-        static public List<int> Pridani(List<int> pole, int n, int d)
+        static public List<int> Pridani(List<int> pole, int n)
         {
+            int d = pole[pole.Count - 1] - pole[pole.Count - 2];
             int a1 = pole[pole.Count-1];
             a1 += d;
             AritPosloupnost(pole, n, a1, d);
