@@ -30,14 +30,14 @@ namespace P05
                 return;
             }
 
-            List<int> l = list.vytvor(n, a1, d);
+            List<int> l = list.Vytvor(n, a1, d);
 
             if (checkBox1.Checked)
             {
                 list.Pridani(l, n);
             }
 
-            list.vypis(listBox1, l);
+            list.Vypis(listBox1, l);
         }
     }
 }

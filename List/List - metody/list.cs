@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Transactions;
 using System.Windows.Forms;
 
@@ -21,7 +22,7 @@ namespace List_metody
         }
 
 
-        static public void vypis(ListBox k, List<int> pole)
+        static public void Vypis(ListBox k, List<int> pole)
         {
             k.Items.Clear();
             for (int i = 0; i < pole.Count; i++)
@@ -29,7 +30,7 @@ namespace List_metody
                 k.Items.Add(pole[i]);
             }
         }
-        static public List<int> vymaz(List<int> pole, int k)
+        static public List<int> Vymaz(List<int> pole, int k)
         {
             int i = 0;
             while (i < pole.Count)
@@ -44,12 +45,12 @@ namespace List_metody
             }
             return pole;
         }
-        static public List<int> lambda(List<int> pole, int k)
+        static public List<int> Lambda(List<int> pole, int k)
         {
             pole.RemoveAll(a => a == k);
             return pole;
         }
-        static public int druhe_maximum(List<int> pole, out int poradi)
+        static public int Druhe_maximum(List<int> pole, out int poradi)
         {
             int max = pole.Max();
             int max2 = -8;
@@ -76,7 +77,7 @@ namespace List_metody
             return max2;
         }
 
-        static public List<int> poradi_min_cisel(List<int> pole)
+        static public List<int> Poradi_min_cisel(List<int> pole)
         {
             int min = pole.Min();
             List<int> test = new List<int>();
@@ -108,11 +109,60 @@ namespace List_metody
             AritPosloupnost(pole, n, a1, d);
             return pole;
         }
-        static public List<int> vytvor(int n, int a1, int d)
+        static public List<int> Vytvor(int n, int a1, int d)
         {
             List<int> r = new List<int>();
             AritPosloupnost(r, n, a1, d);   
             return r;
+        }
+
+
+        static public List<double> Posloupnost_gon(List<double> pole, int n, double a1, double a2)
+        {
+            pole.Add(a1);
+            pole.Add(a2);
+            double posloupnost = pole[1] / pole[0];
+            double dalsi_prvek;
+            for (int i = 2; i<n; i++)
+            {
+                dalsi_prvek = pole[pole.Count-1] * posloupnost;
+                pole.Add(dalsi_prvek);
+            }
+            return pole;
+        }
+
+        static public List<double> Vytvor_gon(int n, double a1, double a2)
+        {
+            List<double> r = new List<double>();
+            Posloupnost_gon(r, n, a1, a2);
+            return r;
+        }
+        static public void Vypis(ListBox k, List<double> pole)
+        {
+            k.Items.Clear();
+            for (int i = 0; i < pole.Count; i++)
+            {
+                k.Items.Add(pole[i]);
+            }
+        }
+
+        static public bool soucet_prvku(List<double> pole,int p, out double soucet)
+        {
+            soucet = 0;
+            if (p <= pole.Count)
+            {
+                for (int i = 0; i < p; i++)
+                {
+                    soucet += pole[i];
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
