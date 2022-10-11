@@ -204,5 +204,38 @@ namespace List_metody
             }
             return pole;
         }
+
+        static public List<int> Prohození(List<int> pole, out int min, out int max)
+        {
+            min = Int32.MaxValue;
+            max = Int32.MinValue;
+            int pozice_max = 0;
+            int pozice_min = 0;
+            for (int i = 0; i < pole.Count; i++)
+            {
+                if (pole[i] % 2 == 0) {
+                    if (max < pole[i]) {
+                        max = pole[i];
+                        pozice_max = i;
+                    }
+                }
+                else
+                {
+                    if (pole[i] % 3 == 0)
+                    {
+                        if (min > pole[i]) { 
+                            min = pole[i];
+                            pozice_min = i;
+                        }
+                    }
+    
+                }
+            }
+            if (min != Int32.MaxValue && max != Int32.MinValue) { 
+                pole[pozice_max] = min;
+                pole[pozice_min] = max;
+            }
+            return pole;
+        }
     }
 }
