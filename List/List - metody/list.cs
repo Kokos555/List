@@ -207,8 +207,8 @@ namespace List_metody
 
         static public List<int> Prohození(List<int> pole, out int min, out int max)
         {
-            min = Int32.MaxValue;
-            max = Int32.MinValue;
+            min = 1001;
+            max = -1001;
             int pozice_max = 0;
             int pozice_min = 0;
             for (int i = 0; i < pole.Count; i++)
@@ -231,7 +231,7 @@ namespace List_metody
     
                 }
             }
-            if (min != Int32.MaxValue && max != Int32.MinValue) { 
+            if (min != 1001 && max != -1001) { 
                 pole[pozice_max] = min;
                 pole[pozice_min] = max;
             }
