@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Transactions;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using TextBox = System.Windows.Forms.TextBox;
 
 namespace List_metody
 {
@@ -236,6 +236,16 @@ namespace List_metody
                 pole[pozice_min] = max;
             }
             return pole;
+        }
+
+        static public void vypis(TextBox k, List<char> pole)
+        {
+            string slovo = "";
+            for (int p = 0; p < pole.Count; p++)
+            {
+                slovo += pole[p];
+            }
+            k = slovo;
         }
     }
 }
