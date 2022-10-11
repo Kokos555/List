@@ -187,5 +187,22 @@ namespace List_metody
             }
             return result;
         }
+
+        static public List<char> Vypustit(List<char> pole)
+        {
+            int i = 0;
+            while (i < pole.Count)
+            {
+                if (pole[i] >= 'a' && pole[i]<='z' || char.IsDigit(pole[i]))
+                {
+                    pole.Remove(pole[i]);
+                }else
+                {
+                    i++;
+                }
+
+            }
+            return pole;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,8 @@ namespace P07
         {
             List<char> l = list.Vytvor_char(textBox1);
             list.Vypis(listBox1, l);
+            l = list.Vypustit(l);
+            list.Vypis(listBox2, l);
         }
     }
 }
